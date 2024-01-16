@@ -47,7 +47,7 @@ namespace MVVMPattern.Models
                 var books = GetBooks();
 
                 // 이미 존재하는 ID일 경우 예외처리
-                if (books.Exists(b => b.Id == book.Id))
+                if (books.Exists(b => b.ID == book.ID))
                 {
                     MessageBox.Show("이미 등록된 ID 입니다.", "오류", MessageBoxButton.OK, MessageBoxImage.Error);
                     return false;
@@ -72,7 +72,7 @@ namespace MVVMPattern.Models
 
             try
             {
-                var book = books.Find(b => b.Id == id);
+                var book = books.Find(b => b.ID == id);
                 if (book == null)
                 {
                     MessageBox.Show("존재하지 않는 ID 입니다.", "오류", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -92,6 +92,6 @@ namespace MVVMPattern.Models
             return true;
         }
 
-        public bool ExistBook(int id) => GetBooks().Exists(b => b.Id == id);
+        public bool ExistBook(int id) => GetBooks().Exists(b => b.ID == id);
     }
 }
