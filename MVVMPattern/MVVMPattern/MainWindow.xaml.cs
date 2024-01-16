@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MVVMPattern.Models;
+using MVVMPattern.ViewModels;
+using MVVMPattern.Views;
 
 namespace MVVMPattern
 {
@@ -32,7 +35,13 @@ namespace MVVMPattern
 
         private void MVVMBtn_Click(object sender, RoutedEventArgs e)
         {
+            BookRepository bookRepository = new BookRepository();
+            MainView mainView = new MainView()
+            {
+                DataContext = new MainViewModel(bookRepository)
+            };
             
+            mainView.Show();
         }
     }
 }
