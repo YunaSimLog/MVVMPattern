@@ -9,7 +9,7 @@ using MVVMPattern.ViewModels;
 
 namespace MVVMPattern.Commands
 {
-    public class SaveCommand : ICommand
+    public class SaveCommand : CommandBase
     {
         MainViewModel _mainViewModel;
         IBookReository _bookReository;
@@ -56,23 +56,14 @@ namespace MVVMPattern.Commands
         }
 
         // 실행 가능 여부 체크
-        public bool CanExecute(object? parameter)
+        public override bool CanExecute(object? parameter)
         {
             return IsValidSave(GetBook());
         }
 
-        public void Execute(object? parameter)
+        public override void Execute(object? parameter)
         {
             Save();
-        }
-
-        /// <summary>
-        /// UI 상태 변화를 검출
-        /// </summary>
-        public event EventHandler? CanExecuteChanged
-        {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
         }
     }
 }
