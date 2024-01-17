@@ -40,7 +40,7 @@ namespace MVVMPattern.Models
                 : JsonSerializer.Deserialize<IEnumerable<Book>>(jsonData);
         }
 
-        public bool AddNewBook(Book book)
+        public bool SaveBook(Book book)
         {
             try
             {

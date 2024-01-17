@@ -10,8 +10,8 @@ namespace MVVMPattern.Models
     {
         public int ID { get; set; }
         public string Title { get; set; }
-        public string Writer { get; set; }
-        public string RentalPeriod { get; set; }
+        public string Renter { get; set; }
+        public DateTime? RentalPeriod { get; set; }
 
         /// <summary>
         /// 책을 대여하여, 대여 날짜를 업데이트 한다.
@@ -20,6 +20,7 @@ namespace MVVMPattern.Models
         /// <param name="book"></param>
         public void RentBook(int id, Book book)
         {
+            Renter = book.Renter;
             RentalPeriod = book.RentalPeriod;
         }
     }

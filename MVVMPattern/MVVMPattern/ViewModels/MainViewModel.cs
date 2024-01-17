@@ -14,11 +14,17 @@ namespace MVVMPattern.ViewModels
         public MainViewModel(IBookReository bookReository)
         {
             _bookReository = bookReository;
+
+            SaveCommand = new SaveCommand(this, bookReository);
         }
 
-        public int ID { get; set; } = 1;
-        public string Title { get; set; } = "dd";
-        public string Writer { get; set; } = "cc";
-        public string RentalPeriod { get; set; } = "ddd";
+        public string ID { get; set; } = "";
+        public string Title { get; set; } = "";
+        public string Renter { get; set; } = "";
+        public string RentalPeriod { get; set; } = "";
+
+        public ICommand SaveCommand { get; set; }
+        public ICommand DeleteCommand { get; set; }
+        public ICommand CancelCommand { get; set; }
     }
 }

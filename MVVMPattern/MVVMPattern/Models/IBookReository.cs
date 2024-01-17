@@ -11,8 +11,8 @@ namespace MVVMPattern.Models
         // 모든 책리스트를 가져온다.
         IEnumerable<Book>? GetAllBookList();
 
-        // 책을 추가한다.
-        bool AddNewBook(Book book);
+        // 책 정보를 저장한다.
+        bool SaveBook(Book book);
 
         // 책을 제거한다.
         bool RemoveBook(int id);
