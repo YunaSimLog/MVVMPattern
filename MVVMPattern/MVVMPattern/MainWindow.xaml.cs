@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MVVMPattern.Commands;
 using MVVMPattern.Models;
 using MVVMPattern.ViewModels;
 using MVVMPattern.Views;
@@ -26,6 +27,7 @@ namespace MVVMPattern
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
@@ -40,7 +42,7 @@ namespace MVVMPattern
             {
                 DataContext = new MainViewModel(bookRepository)
             };
-            
+
             mainView.Show();
         }
     }
