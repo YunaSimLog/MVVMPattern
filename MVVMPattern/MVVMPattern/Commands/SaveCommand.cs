@@ -52,7 +52,11 @@ namespace MVVMPattern.Commands
         private void Save()
         {
             var book = GetBook();
-            _bookReository.SaveBook(book);
+            if (_bookReository.SaveBook(book))
+            {
+                _mainViewModel.Clear();
+                _mainViewModel.DisplayListView();
+            }
         }
 
         // 실행 가능 여부 체크

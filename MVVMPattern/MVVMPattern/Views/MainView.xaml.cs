@@ -22,6 +22,21 @@ namespace MVVMPattern.Views
         public MainView()
         {
             InitializeComponent();
+            tbID.TextChanged += Txt_TextChanged;
+            tbTitle.TextChanged += Txt_TextChanged;
+            tbRenter.TextChanged += Txt_TextChanged;
+            tbRentalPeriod.TextChanged += Txt_TextChanged;
+        }
+
+        /// <summary>
+        /// 한국어 텍스트 박스에 입력시 버벅 거림 오류를 제거하기 위함
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Txt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            BindingExpression be = ((TextBox)sender).GetBindingExpression(TextBox.TextProperty);
+            be.UpdateSource();
         }
     }
 }

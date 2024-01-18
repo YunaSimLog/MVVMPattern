@@ -28,10 +28,10 @@ namespace MVVMPattern.Properties {
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string BookJsonData {
             get {
-                return ((string)(this["BookData"]));
+                return ((string)(this["BookJsonData"]));
             }
             set {
-                this["BookData"] = value;
+                this["BookJsonData"] = value;
             }
         }
     }
